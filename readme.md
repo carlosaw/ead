@@ -1,5 +1,5 @@
 # PHPzp
-## Módulo 33: Projeto - Plataforma EAD
+## Módulo 33: Projeto - Plataforma Ead
 
 # Run project
 ## http://localhost/ead
