@@ -17,7 +17,7 @@ class cursosController extends controller {
 		header("Location: ".BASE);		
 	}
 	public function entrar($id) {
-		$array = array(
+		$dados = array(
 			'info' => array(),
 			'curso' => array(),
 			'modulos' => array()
@@ -46,7 +46,7 @@ class cursosController extends controller {
 	}
 
 	public function aula($id_aula) {
-		$array = array(
+		$dados = array(
 			'info' => array(),
 			'curso' => array(),
 			'modulos' => array(),
@@ -80,14 +80,13 @@ class cursosController extends controller {
 				$view = 'curso_aula_poll';
 
 				if(!isset($_SESSION['poll'.$id_aula])) {
-					$_SESSION['poll'.$id_aula] = 1;
+					$_SESSION['poll'.$id_aula] = 0;
 				}
 			}
 
 			//Uma vez recebida a duvida vamos recebe-la
 			if(isset($_POST['duvida']) && !empty($_POST['duvida'])) {
 				$duvida = addslashes($_POST['duvida']);
-
 				//Passou a duvida e o aluno que fez a duvida nesta aula.
 				$aula->setDuvida($duvida, $alunos->getId());//Criar setDuvida no model aulas.php
 			}

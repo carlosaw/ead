@@ -7,7 +7,7 @@
 
 <div class="curso_left">
 	<?php foreach($modulos as $modulo): ?>
-		<div class="modulo"><?php echo utf8_encode($modulo['nome']); ?></div>
+		<div class="modulo"><?php echo $modulo['nome']; ?></div>
 	
 		<!--Cria as aulas dentro do modulo	-->
 		<?php foreach($modulo['aulas'] as $aula): ?>
@@ -27,10 +27,10 @@
 	<h1>Questionário</h1>
 	
 	<?php
-	if($_SESSION['poll'.$aula_info['id_aula']] > 2) {
+	if($_SESSION['poll'.$aula_info['id_aula']] > 3) {
 		echo "Você atingiu o limite de tentativas";
 	} else {
-		echo "Tentativa: ".$_SESSION['poll'.$aula_info['id_aula']]." de 2";
+		echo "Tentativa: ".$_SESSION['poll'.$aula_info['id_aula']]." de 3";
 		?>
 		<h3><?php echo $aula_info['pergunta']; ?></h3>
 
@@ -49,7 +49,9 @@
 
 			<input type="submit" value="Enviar Resposta" />
 		</form>
-		<?php //Pega as resposta do cursosController
+		
+<?php } ?><br/><br/>
+<?php //Pega as resposta do cursosController
 			if(isset($resposta)) {
 				if($resposta === true) {
 					echo "RESPOSTA CORRETA!";
@@ -57,6 +59,5 @@
 					echo "RESPOSTA INCORRETA!";
 				}
 			}
-		?>
-<?php } ?><!--Fecha o else de tentativas para fechar o form-->
+		?><!--Fecha o else de tentativas para fechar o form-->
 </div>

@@ -2,8 +2,7 @@
 class Aulas extends model {
 
 	public function marcarAssistido($id) {
-		$aluno = $_SESSION['lgaluno'];
-		
+		$aluno = $_SESSION['lgaluno'];		
 		$sql = "INSERT INTO historico SET data_viewed = NOW(), id_aluno = '$aluno', id_aula = '$id'";
 				
 			$this->db->query($sql);
@@ -29,7 +28,7 @@ class Aulas extends model {
 					$array[$aulachave]['nome'] = $sql['nome'];
 				} 
 				elseif($aula['tipo'] == 'poll') {
-					$array[$aulachave]['nome'] = "Questionario";	
+					$array[$aulachave]['nome'] = "Questionário";	
 				}
 			}
 		}

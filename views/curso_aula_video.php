@@ -7,7 +7,7 @@
 
 <div class="curso_left">
 	<?php foreach($modulos as $modulo): ?>
-		<div class="modulo"><?php echo utf8_encode($modulo['nome']); ?></div>
+		<div class="modulo"><?php echo $modulo['nome']; ?></div>
 		<!--em server side tirar utf8_encode-->
 		<!--Cria as aulas dentro do modulo	-->
 		<?php foreach($modulo['aulas'] as $aula): ?>
