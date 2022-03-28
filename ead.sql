@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Mar-2022 às 02:45
+-- Tempo de geração: 28-Mar-2022 às 22:54
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 7.4.26
 
@@ -69,7 +69,6 @@ INSERT INTO `aluno_curso` (`id`, `id_curso`, `id_aluno`) VALUES
 (62, 3, 1),
 (61, 2, 1),
 (60, 1, 1),
-(81, 9, 11),
 (80, 1, 11);
 
 -- --------------------------------------------------------
@@ -157,18 +156,7 @@ INSERT INTO `aulas` (`id`, `id_modulo`, `id_curso`, `ordem`, `tipo`) VALUES
 (84, 26, 8, 1, 'video'),
 (85, 26, 8, 2, 'poll'),
 (86, 27, 8, 1, 'video'),
-(87, 27, 8, 2, 'poll'),
-(88, 28, 9, 1, 'video'),
-(90, 0, 9, 1, 'video'),
-(91, 34, 9, 1, 'video'),
-(92, 34, 9, 2, 'video'),
-(93, 34, 9, 3, 'video'),
-(94, 34, 9, 4, 'video'),
-(95, 34, 9, 5, 'video'),
-(96, 34, 9, 6, 'video'),
-(97, 34, 9, 7, 'video'),
-(98, 34, 9, 8, 'video'),
-(99, 34, 9, 9, 'poll');
+(87, 27, 8, 2, 'poll');
 
 -- --------------------------------------------------------
 
@@ -189,7 +177,6 @@ CREATE TABLE `cursos` (
 
 INSERT INTO `cursos` (`id`, `nome`, `imagem`, `descricao`) VALUES
 (1, 'PHP ', 'php.jpg', 'Curso de PHP'),
-(9, 'Injetaveis', 'ecc465f8e0aad13e19c2568cf6d1a3fcjpg', 'OBJETIVO GERAL: Fornecer instrumentos teóricos e práticos.'),
 (2, 'HTML', 'html.jpg', 'Curso de HTML'),
 (3, 'JAVASCRIPT', 'javascript.jpg', 'Curso de JavaScript'),
 (4, 'CSS', 'css.jpg', 'Curso de CSS'),
@@ -283,8 +270,7 @@ INSERT INTO `modulos` (`id`, `id_curso`, `nome`) VALUES
 (24, 6, 'Avançado'),
 (25, 8, 'Básico'),
 (26, 8, 'Intermediário'),
-(27, 8, 'Avançado'),
-(34, 9, 'Basico');
+(27, 8, 'Avançado');
 
 -- --------------------------------------------------------
 
@@ -342,7 +328,7 @@ INSERT INTO `questionarios` (`id`, `id_aula`, `pergunta`, `opcao1`, `opcao2`, `o
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `email` varchar(100) NOT NULL,
   `senha` varchar(32) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -412,9 +398,9 @@ INSERT INTO `videos` (`id`, `id_aula`, `nome`, `descricao`, `url`) VALUES
 (37, 77, 'Aula 4', NULL, NULL),
 (38, 79, 'Aula 5', NULL, NULL),
 (39, 80, 'Aula 6', NULL, NULL),
-(40, 82, 'Aula 1', NULL, NULL),
-(41, 84, 'Aula 2', NULL, NULL),
-(42, 86, 'Aula 3', NULL, NULL),
+(40, 82, 'Aula 1', NULL, '30110175'),
+(41, 84, 'Aula 2', NULL, '158934387'),
+(42, 86, 'Aula 3', NULL, '66284812'),
 (43, 91, 'Aula 1', 'Fornecer instrumentos teóricos e práticos para a administração parenteral de medicamentos. Desenvolver a destreza no manuseio dos materiais utilizados em cada técnica e subsidiar em conhecimento os cuidados no antes, durante e após a aplicação. Fornecer elementos que facilitem o reconhecimento e a postura correta diante de um possível acidente.', '236211411'),
 (44, 92, 'Aula 2', NULL, NULL),
 (45, 93, 'Aula 3', NULL, NULL),
@@ -544,7 +530,7 @@ ALTER TABLE `questionarios`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `videos`
