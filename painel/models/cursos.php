@@ -1,7 +1,7 @@
 <?php
 class Cursos extends model {
 
-	public function getCursos() {//Pega a qtde de alunos inscritos num curso especifico		
+	public function getCursos() {//Pega a qtde de alunos inscritos num curso especifico	
 		$array = array();
 
 		$sql = "
@@ -16,9 +16,9 @@ class Cursos extends model {
 		if($sql->rowCount() > 0) {
 			$array = $sql->fetchAll();
 		}
-
 		return $array;
 	}
+
 	public function excluir($id) {//Deleta Curso.
 		$sql = "SELECT id FROM aulas WHERE id_curso = '$id'";
 		$sql = $this->db->query($sql);

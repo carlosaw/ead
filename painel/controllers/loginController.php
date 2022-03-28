@@ -16,8 +16,7 @@ class loginController extends controller {
 			$usuarios = new Usuarios();//Instancia a classe 'alunos'.
 			
 			// *Se existir o email e senha...
-			if($usuarios->fazerLogin($email, $senha)) {// Criar fazerLogin no Model usuarios
-				
+			if($usuarios->fazerLogin($email, $senha)) {// Criar fazerLogin no Model usuarios				
 				// *Vai para Home.
 				header("Location: ".BASE);
 			}

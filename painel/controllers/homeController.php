@@ -21,15 +21,12 @@ class homeController extends controller {
 	}
 
 	public function excluir($id) {
-
 		$cursos = new Cursos();
 		$cursos->excluir($id);
 		header("Location: ".BASE);
-
 	}
 
-	public function adicionar() {
-		
+	public function adicionar() {		
 		$cursos = new Cursos();
 		$cursos->adicionar();
 		$this->loadTemplate("curso_add");

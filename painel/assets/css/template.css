@@ -3,26 +3,40 @@ body {
 	background-color:#EEE ;
 	font-family:arial;
 }
+.container {
+	display: flex;
+	width: 100vw;
+	justify-content: center;
+}
+section {
+	max-width: 1400px;
+	flex: 1;
+}
 .form_login {
-	width:300px;
-	height:280px;
+	max-width:300px;
 	background-color:#DDD;
 	margin:auto;
 	margin-top:100px;
 	padding:30px;
 	border-radius:10px;
-	box-shadow:0 0 20px 1px #000;
+	box-shadow:0 0 20px 1px rgb(165, 164, 164);
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 }
 .inp_entrar {
-	width:300px;
+	width:100%;
 	padding:15px;
 	font-size:14px;
-	box-shadow:0 0 5px 1px #000;
+	outline: none;
+	font-size: 18px;
 }
 .topo {
 	height:40px;
-	background-color:#2F3136;
+	background-color:#4076ff;
 	color:#FFF;
+	padding: 0px 20px;
 }
 .topo a {
 	color:#FFF;
@@ -60,7 +74,7 @@ body {
 	margin-top:50px;
 	padding:30px;
 	border-radius:10px;
-	box-shadow:0 0 20px 1px #000;
+	outline: none;
 }
 .txtadd {
 	width:100%;
@@ -91,29 +105,28 @@ body {
 	font-size:14px;
 	box-shadow:0 0 5px 1px #000;
 }
-.btnAdd a {
-	text-decoration:none;
-	color:#000;
+
+.btnAction {
+	display: flex;
+	justify-content: space-evenly;
 }
-.btnAdd {
-	margin-left:50px;
-	padding:6px;
-	background-color:#CFCFCF;
+.btn {
+	padding: 10px 15px;
+	background-color:forestgreen;
+	border-radius: 5px;
+	border: 0px;
 }
-.btnAdd:hover {
-	background-color:#B5B5B5
+.btn a {
+	text-decoration: none;
+	color: #FFF;
 }
-.btnEdit button {
-	padding:6px;
-	background-color:#CFCFCF;
+.b {
+	background-color: #4076ff;
 }
-.btnEdit button a {
-	text-decoration:none;
-	color:#000;
+.c {
+	background-color: rgb(238, 52, 52);
 }
-.btnEdit button:hover {
-	background-color:#B5B5B5;
-}
+
 h2 {
 	margin-left:20px;
 }
@@ -168,4 +181,18 @@ h5 {
 	box-shadow:0 0 5px 1px #000;
 }
 
-
+table {
+	padding: 0px 30px;
+}
+.ptr {
+	border-bottom: 1px solid #CCC;
+}
+.ptr img {
+	margin: 10px 0px;
+}
+.ptrname {
+	padding-left: 20px;
+	font-weight: bold;
+	font-size: 20px;
+	border-bottom: 1px solid #CCC;
+}
