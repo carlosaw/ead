@@ -1,7 +1,8 @@
 body {
 	margin:0;
+	background-color:#333 ;
 	font-family:arial;
-	background-color: #EEE;
+	color: #FFF;
 }
 .form_login {
 	max-width:300px;
@@ -25,7 +26,7 @@ body {
 }
 .topo {
 	height:40px;
-	background-color:#4076ff;
+	background-color:#000;
 	color:#FFF;
 }
 .topo a {
@@ -65,7 +66,7 @@ body {
 	margin-left:10px;
 	margin-right:10px;
 	margin-bottom:20px;
-	border:2px solid #CCC;
+	border:1px solid #FFF;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 10px;
@@ -108,7 +109,7 @@ body {
 }
 .title {
 	text-align:center;
-	color: rgb(65, 67, 230);
+	color: #FFF;
 }
 .modulo {
 	height:30px;
