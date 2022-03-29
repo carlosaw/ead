@@ -7,8 +7,6 @@
 		<script type="text/javascript" src="<?php echo BASE; ?>assets/js/script.js"></script>
 	</head>
 	<body>
-		<div class="container">
-			<section>
 			<div class="topo">
 				<a href="<?php echo BASE; ?>">
 					<div>Cursos</div>

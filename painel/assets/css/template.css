@@ -1,17 +1,7 @@
 body {
 	margin:0;
-	background-color:#333 ;
 	font-family:arial;
-	color: #FFF;
-}
-.container {
-	display: flex;
-	width: 100vw;
-	justify-content: center;
-}
-section {
-	max-width: 1400px;
-	flex: 1;
+	background-color: #EEE;
 }
 .form_login {
 	max-width:300px;
@@ -32,6 +22,7 @@ section {
 	font-size:14px;
 	outline: none;
 	font-size: 18px;
+	border: 0px;
 }
 .topo {
 	height:40px;
@@ -53,10 +44,12 @@ section {
 .topo a div:hover {
 	background-color:#555;
 }
+
 .add {
 	text-align:center;
 	margin-top:50px;
 }
+
 .form_addAluno {
 	width: 300px;
     height: 300px;
@@ -111,28 +104,6 @@ section {
 	font-size:14px;
 	border: 0px;
 }
-
-.btnAction {
-	display: flex;
-	justify-content: space-evenly;
-}
-.btn {
-	padding: 10px 15px;
-	background-color:forestgreen;
-	border-radius: 5px;
-	border: 0px;
-}
-.btn a {
-	text-decoration: none;
-	color: #FFF;
-}
-.b {
-	background-color: #4076ff;
-}
-.c {
-	background-color: rgb(238, 52, 52);
-}
-
 h2 {
 	margin-left:20px;
 }
@@ -185,18 +156,4 @@ h5 {
 	margin-top:10px;
 	font-size:14px;
 	box-shadow:0 0 5px 1px #000;
-}
-
-table {
-	padding: 0px 30px;
-}
-.ptr img {
-	margin: 10px 0px;
-	height: 112px;
-	border: 1px solid #FFF;
-}
-.ptrname {
-	padding-left: 20px;
-	font-weight: bold;
-	font-size: 20px;
 }

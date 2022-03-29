@@ -6,11 +6,11 @@
 	<body>
 		<form method="POST" class="form_login">
 			<h2>Login do Painel</h2>
-			<input type="email" name="email" placeholder="E-mail" autofocus class="inp_entrar"/><br/><br/>
+			<input type="email" name="email" placeholder="E-mail" autofocus /><br/><br/>
 
-			<input type="password" name="senha" placeholder="Senha" class="inp_entrar"/><br/><br/>
+			<input type="password" name="senha" placeholder="Senha" /><br/><br/>
 
-			<input type="submit" value="Entrar" class="inp_entrar"/>
+			<input type="submit" value="Entrar" />
 		</form>
 	</body>
 </html>
