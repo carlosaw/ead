@@ -47,7 +47,7 @@ class Aulas extends model {
 			}
 	}
 
-	public function delAula($id) {
+	public function deleteAula($id) {
 		$sql = "SELECT id_curso FROM aulas WHERE id = '$id'";
 		$sql = $this->db->query($sql);
 		if($sql->rowCount() > 0) {
@@ -57,14 +57,9 @@ class Aulas extends model {
 		$this->db->query("DELETE FROM questionarios WHERE id_aula = '$id'");
 		$this->db->query("DELETE FROM videos WHERE id_aula = '$id'");
 		$this->db->query("DELETE FROM historico WHERE id_aula = '$id'");
-
-		header("Location: ".BASE."home/editar/".$sql['id_curso']);
-		exit;
 		
 		return $sql['id_curso'];
 		}
-		
-		header("Location: ".BASE);
 	}
 
 	public function getAula($id_aula) {

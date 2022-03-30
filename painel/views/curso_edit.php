@@ -14,15 +14,14 @@
 		<input type="submit" value="Salvar" class="inp_edit" />
 
 	</form><br/>
-	
+	<hr/>
 	<h1 style="text-align:center">Add Módulos/Aulas</h1>
 	
 	<fieldset>
 		<legend>Adicionar Módulo Novo</legend>
 			<form method="POST">
 				Título do Módulo:<br/>
-				<input type="text" name="modulo" /><br/><br/>
-
+				<input type="text" name="modulo" />
 				<input type="submit" value="Adicionar Módulo" />
 			</form>
 	</fieldset>
@@ -54,9 +53,8 @@
 		<h4><?php echo $modulo['nome']; ?> - <a href="<?php echo BASE; ?>home/edit_modulo/<?php echo $modulo['id']; ?>">[editar]</a> - <a href="<?php echo BASE; ?>home/del_modulo/<?php echo $modulo['id']; ?>">[excluir]</a></h4>
 
 		<?php foreach($modulo['aulas'] as $aula): ?>
-		<h5><?php echo $aula['nome']; ?> - <a href="<?php echo BASE;?>home/edit_aula/<?php echo $aula['id']; ?>">[editar]</a> - <a href="<?php echo BASE; ?>home/del_aula/<?php echo $aula['id']; ?>">[excluir]</a></h5>
+			<h5><?php echo $aula['nome']; ?> - <a href="<?php echo BASE;?>home/edit_aula/<?php echo $aula['id']; ?>">[editar]</a> - <a href="<?php echo BASE; ?>home/del_aula/<?php echo $aula['id']; ?>">[excluir]</a></h5>
 		<?php endforeach; ?>
-
 	<?php endforeach; ?>
 
 	</body>

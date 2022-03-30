@@ -20,13 +20,13 @@ class homeController extends controller {
 		$this->loadTemplate('home', $dados);
 	}
 
-	public function excluir($id) {
+	public function excluir($id) {// Excluir um curso
 		$cursos = new Cursos();
 		$cursos->excluir($id);
 		header("Location: ".BASE);
 	}
 
-	public function adicionar() {	
+	public function adicionar() {// Adicionar um curso	
 		
 		$dados = array();
 		$cursos = new Cursos();
@@ -58,9 +58,7 @@ class homeController extends controller {
 			'curso' => array(),
 			'modulos' => array()
 		);
-		$modulos = new Modulos();		
-		
-
+				
 		if(isset($_POST['nome']) && !empty($_POST['nome'])) {
 			$nome = addslashes($_POST['nome']);
 			$descricao = addslashes($_POST['descricao']);
@@ -80,7 +78,7 @@ class homeController extends controller {
 				}
 			}
 		}
-				
+		$modulos = new Modulos();		
 		//Usuário adicionou um Módulo Novo.
 		if(isset($_POST['modulo']) && !empty($_POST['modulo'])) {
 			$modulo = addslashes($_POST['modulo']);
@@ -98,21 +96,57 @@ class homeController extends controller {
 		}
 		
 		$cursos = new Cursos();
-		$dados['curso'] = $cursos->getCurso($id);
-		
-		$dados['modulos'] = $modulos->getModulos($id);		
+		$dados['curso'] = $cursos->getCurso($id);		
+		$dados['modulos'] = $modulos->getModulos($id);
+
 		$this->loadTemplate('curso_edit', $dados);		
 	}
 
+	public function del_modulo($id) {// Excluir Módulo
+		if(!empty($id)) {
+
+			$id = addslashes($id);
+			$modulos = new Modulos();
+			 			
+			$id_curso = $modulos->deleteModulo($id);
+
+			header("Location: ".BASE."home/editar/".$id_curso);
+			exit;
+		}	
+		header("Location: ".BASE);	
+	}
+	
+	public function edit_modulo($id) {
+		$array = array();
+		$id_curso = $modulos = new Modulos();
+
+		if(isset($_POST['modulo']) && !empty($_POST['modulo'])) {
+			$nome = addslashes($_POST['modulo']);
+			$id_curso = $modulos->updateModulo($nome, $id);
 		
+		header("Location: ".BASE."home/editar/".$id_curso);
+		exit;
+		}
+		$array['modulo'] = $modulos->getModulo($id);
+
+		$this->loadTemplate('curso_edit_modulo', $array);
+	}
+
+	public function del_aula($id) {
+		if(!empty($id)) {
+			$id = addslashes($id);			
+			$aulas = new Aulas();
+			
+			$id_curso = $aulas->deleteAula($id);
+
+			header("Location: ".BASE."home/editar/".$id_curso);
+			exit;
+		}
+		header("Location: ".BASE);
+	}
 		
 
-		/*$modulos = new Modulos();
-		 //Usuário adicionou um Módulo Novo.
-		 if(isset($_POST['modulo']) && !empty($_POST['modulo'])) {
-		 	$modulo = utf8_decode(addslashes($_POST['modulo']));
-		 	$modulos->addModulo($modulo, $id);
-		}
+/*		
 		$aulas = new Aulas();
 		//Usuário adicionou uma Aula Nova.
 		if(isset($_POST['aula']) && !empty($_POST['aula'])) {
@@ -121,46 +155,15 @@ class homeController extends controller {
 			$tipo = addslashes($_POST['tipo']);
 //print_r($_POST);exit;
 			$aulas->addAula($id, $moduloaula, $aula, $tipo);
-		}
-		*/
+*/		
+	
 		
 
-/*
-	public function del_modulo($id) {
-		if(!empty($id)) {
-			$id = addslashes($id);
-			$modulos = new Modulos();			
-			$modulos->delModulo($id);
-		}
-	}
 
-	public function edit_modulo($id) {
-		$array = array();
 
-		$id_curso = $modulos = new Modulos();
+	
 
-		if(isset($_POST['modulo']) && !empty($_POST['modulo'])) {
-			$nome = utf8_decode(addslashes($_POST['modulo']));
-			$id_curso = $modulos->updateModulo($nome, $id);
-		
-		header("Location: ".BASE."home/editar/".$id_curso);
-		exit;
-		}
-
-		$array['modulo'] = $modulos->getModulo($id);
-
-		$this->loadTemplate('curso_edit_modulo', $array);
-	}
-
-	public function del_aula($id) {
-		if(!empty($id)) {
-			$id = addslashes($id);
-			
-			$aulas = new Aulas();
-			
-			$id_curso = $aulas->delAula($id);
-		}
-	}
+	
 
 	public function edit_aula($id) {
 		$dados = array();
@@ -205,5 +208,5 @@ class homeController extends controller {
 
 		$this->loadTemplate($view, $dados);
 	}
-	*/
+	
 }

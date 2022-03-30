@@ -42,17 +42,14 @@ class Modulos extends model {
 		
 	}
 
-	public function delModulo($id) {
+	public function deleteModulo($id) {
 		$sql = "SELECT id_curso FROM modulos WHERE id = '$id'";
 		$sql = $this->db->query($sql);
 		if($sql->rowCount() > 0) {
-			$sql = $sql->fetch();
-		
-		$this->db->query("DELETE FROM modulos WHERE id = '$id'");
+			$sql = $sql->fetch();		
+			$this->db->query("DELETE FROM modulos WHERE id = '$id'");
 
-		header("Location: ".BASE."home/editar/".$sql['id_curso']);
-		exit;
-		return $sql['id_curso'];
+			return $sql['id_curso'];
 		}
 		header("Location: ".BASE);
 	}
@@ -64,9 +61,7 @@ class Modulos extends model {
 			$sql = $sql->fetch();
 		
 		$this->db->query("UPDATE modulos SET nome = '$nome' WHERE id = '$id'");
-		return $sql['id_curso'];
-				
-		}
-		
+		return $sql['id_curso'];				
+		}		
 	}
 }
