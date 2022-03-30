@@ -72,11 +72,29 @@ class Cursos extends model {
 		return $array;
 	}
 
-	public function editCurso($id, $nome, $descricao, $md5name) {// Edição do Curso!
+	public function editar($id) {// Edição do Curso!
+		
+		if(isset($_POST['nome']) && !empty($_POST['nome'])) {
+			$nome = addslashes($_POST['nome']);
+			$descricao = addslashes($_POST['descricao']);
+			$imagem = $_FILES['imagem'];
 	
 			$this->db->query("UPDATE cursos SET nome = '$nome', descricao = '$descricao' WHERE id = '$id'");
 
-			$this->db->query("UPDATE cursos SET imagem = '$md5name' WHERE id = '$id'");					
+			if(!empty($imagem['tmp_name'])) {//Verifica se imagem foi enviada.				
+				$md5name = md5(time().rand(0,9999)).'.jpg';
+				$types = array('image/jpeg', 'image/jpg', 'image/png');
+
+				if(in_array($imagem['type'], $types)) {
+					move_uploaded_file($imagem['tmp_name'], "../assets/images/cursos/".$md5name);
+
+				$this->db->query("UPDATE cursos SET nome = '$nome', descricao = '$descricao' WHERE id = '$id'");
+
+				$this->db->query("UPDATE cursos SET imagem = '$md5name' WHERE id = '$id'");
+			 	
+				}
+			}
+		}
 	}
 /*
 	public function getCursosInscritos($id_aluno) {

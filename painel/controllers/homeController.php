@@ -55,33 +55,53 @@ class homeController extends controller {
 
 	public function editar($id) {//Editar Curso.
 		$dados = array(
-			'curso' => array()
+			'curso' => array(),
+			'modulos' => array()
 		);
-		$cursos = new Cursos();
-				
+		$modulos = new Modulos();		
+		
+
 		if(isset($_POST['nome']) && !empty($_POST['nome'])) {
-			
 			$nome = addslashes($_POST['nome']);
 			$descricao = addslashes($_POST['descricao']);
 			$imagem = $_FILES['imagem'];
 
-			if(!empty($imagem['tmp_name'])) {
+			$cursos = new Cursos();
+			$cursos = $cursos->editar($id, $nome, $descricao);
+
+			if(!empty($imagem['tmp_name'])) {//Verifica se imagem foi enviada.			
 				$md5name = md5(time().rand(0,9999)).'.jpg';
 				$types = array('image/jpeg', 'image/jpg', 'image/png');
 
 				if(in_array($imagem['type'], $types)) {
+					$cursos = new Cursos();
 					move_uploaded_file($imagem['tmp_name'], "../assets/images/cursos/".$md5name);
-
+					$cursos = $cursos->editar($md5name);
 				}
-				
 			}
-			$dados['curso'] = $cursos->editCurso($id, $nome, $descricao, $md5name);
+		}
+				
+		//Usuário adicionou um Módulo Novo.
+		if(isset($_POST['modulo']) && !empty($_POST['modulo'])) {
+			$modulo = addslashes($_POST['modulo']);
+			$modulos->addModulo($modulo, $id);
+		}
+
+		$aulas = new Aulas();
+		//Usuário adicionou uma Aula Nova.
+		if(isset($_POST['aula']) && !empty($_POST['aula'])) {
+			$aula = addslashes($_POST['aula']);
+			$moduloaula = addslashes($_POST['moduloaula']);
+			$tipo = addslashes($_POST['tipo']);
+
+			$aulas->addAula($id, $moduloaula, $aula, $tipo);
 		}
 		
-
+		$cursos = new Cursos();
 		$dados['curso'] = $cursos->getCurso($id);
 		
-		$this->loadTemplate('curso_edit', $dados);
+		$dados['modulos'] = $modulos->getModulos($id);		
+		$this->loadTemplate('curso_edit', $dados);		
 	}
 
 		
