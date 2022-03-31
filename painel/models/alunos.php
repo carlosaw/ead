@@ -26,7 +26,6 @@ class Alunos extends model {
 
 		if($sql->rowCount() > 0) {
 			$array = $sql->fetch();
-//print_r($array);exit;
 		}
 		
 		return $array;

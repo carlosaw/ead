@@ -106,6 +106,5 @@ class Aulas extends model {
 		} else {
 			return false;
 		}
-
 	}
 }

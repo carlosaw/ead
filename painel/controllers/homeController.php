@@ -180,7 +180,7 @@ class homeController extends controller {
 			$resposta = addslashes($_POST['resposta']);
 
 			$id_curso = $aulas->updateQuestionarioAula($id, $pergunta, $opcao1, $opcao2, $opcao3, $opcao4, $resposta);
-	//print_r($_POST);exit;
+	
 			header("Location: ".BASE."home/editar/".$id_curso);
 		}
 
