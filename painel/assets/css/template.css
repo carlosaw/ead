@@ -1,7 +1,13 @@
 body {
 	margin:0;
 	font-family:arial;
-	background-color: #EEE;
+	background-color: #DDD;
+	display: flex;
+	justify-content: center;
+}
+.container {
+	max-width: 1280px;
+  width: 100%;	
 }
 .form_login {
 	max-width:300px;
@@ -104,6 +110,9 @@ body {
 	font-size:14px;
 	border: 0px;
 }
+h1 {
+	text-align: center;
+}
 h2 {
 	margin-left:20px;
 }
@@ -156,4 +165,14 @@ h5 {
 	margin-top:10px;
 	font-size:14px;
 	box-shadow:0 0 5px 1px #000;
+}
+
+.cursos {
+	height: 80vh;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+
 }

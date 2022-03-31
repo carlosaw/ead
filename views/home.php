@@ -10,8 +10,8 @@
 				<div class="cursoitem">
 					<img src="<?php echo BASE; ?>assets/images/cursos/<?php echo $curso['imagem']; ?>" border="0" width="260" height="150" /><br/><br/>
 
-					<strong style="color:#FFF;"><?php echo $curso['nome']; ?></strong><br/>
-					<normal style="color:#FFF;"><?php echo $curso['descricao']; ?></normal><br/><br/>
+					<strong><?php echo $curso['nome']; ?></strong><br/>
+					<normal><?php echo $curso['descricao']; ?></normal><br/><br/>
 				</div>
 			</a>
 		</div>

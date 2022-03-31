@@ -65,7 +65,7 @@ body {
 	margin-left:10px;
 	margin-right:10px;
 	margin-bottom:20px;
-	border:1px solid #FFF;
+	border:1px solid rgb(134, 134, 134);
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 10px;
@@ -74,19 +74,26 @@ body {
 }
 .cursoinfo {
 	height:80px;
-	background-color:#000;
+	background-color:#504e4e;
 	color:#eee;
 }
 .cursoinfo img {
 	float:left;
-	margin-right:40px;
+	margin-right:55px;
 	margin-top:10px;
 	margin-left:20px;
-	border:1px solid #FFF;
+	border:1px solid rgb(196, 194, 194);
 }
 .cursoinfo h3 {
 	margin:0;
 	padding-top:10px;
+}
+.back a {
+	float: right;
+	color: #FFF;
+	margin-top: -50px;
+	margin-right: 30px;
+	text-decoration: none;
 }
 .curso_left a {
 	color:#9C9C9C;
@@ -103,12 +110,12 @@ body {
 	width:80%;
 	min-height:300px;
 	float:left;
-	/*background-color:#37393E;*/
+	background-size: cover;
 	overflow-y:scroll;
 }
 .title {
 	text-align:center;
-	color: #FFF;
+	color: #333;
 }
 .modulo {
 	height:30px;

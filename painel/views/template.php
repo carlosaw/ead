@@ -7,6 +7,7 @@
 		<script type="text/javascript" src="<?php echo BASE; ?>assets/js/script.js"></script>
 	</head>
 	<body>
+	<div class="container">
 			<div class="topo">
 				<a href="<?php echo BASE; ?>">
 					<div>Cursos</div>
@@ -20,5 +21,4 @@
 			</div>
 		
 	<?php $this->loadViewInTemplate($viewName, $viewData); ?>
-	</body>
-</html>
+	

@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 31-Mar-2022 às 03:51
+-- Tempo de geração: 31-Mar-2022 às 22:59
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 7.4.26
 
@@ -41,7 +41,7 @@ CREATE TABLE `alunos` (
 INSERT INTO `alunos` (`id`, `nome`, `email`, `senha`) VALUES
 (1, 'Bonieky ', 'boni@gmail.com', '698dc19d489c4e4db73e28a713eab07b'),
 (3, 'Carlos Sampaio', 'carlos@gmail.com', '698dc19d489c4e4db73e28a713eab07b'),
-(11, 'José Ricardo ', 'zeamadio@gmail.com', '698dc19d489c4e4db73e28a713eab07b');
+(11, 'José Ricardo ', 'zeamadio@gmail.com', 'fade225f096f9138f98f29887fc1f10d');
 
 -- --------------------------------------------------------
 
@@ -66,12 +66,12 @@ INSERT INTO `aluno_curso` (`id`, `id_curso`, `id_aluno`) VALUES
 (47, 1, 3),
 (135, 6, 1),
 (134, 5, 1),
-(133, 12, 1),
-(80, 1, 11),
+(138, 1, 11),
 (132, 3, 1),
 (131, 2, 1),
 (137, 8, 1),
-(130, 1, 1);
+(130, 1, 1),
+(139, 8, 11);
 
 -- --------------------------------------------------------
 
@@ -126,7 +126,6 @@ INSERT INTO `aulas` (`id`, `id_modulo`, `id_curso`, `ordem`, `tipo`) VALUES
 (52, 13, 3, 2, 'poll'),
 (53, 14, 3, 1, 'video'),
 (54, 14, 3, 2, 'poll'),
-(102, 36, 12, 1, 'video'),
 (101, 4, 1, 4, 'video'),
 (63, 18, 5, 1, 'video'),
 (64, 18, 5, 2, 'video'),
@@ -173,12 +172,11 @@ CREATE TABLE `cursos` (
 
 INSERT INTO `cursos` (`id`, `nome`, `imagem`, `descricao`) VALUES
 (1, 'PHP ', 'php.jpg', 'Curso de PHP'),
-(2, 'HTML', '62842a668608e4a7c95ccf404c6b55f8.jpg', 'Curso de HTML'),
+(2, 'HTML', 'html.jpg', 'Curso de HTML'),
 (3, 'JAVASCRIPT', 'javascript.jpg', 'Curso de JavaScript'),
-(12, 'teste', '7f21cd97aa7e15a2a63d6f54c6f5d061.jpg', 'teste'),
 (5, 'AngularJS', 'angularjs.jpg', 'Curso de Angular'),
 (6, 'JQuery', 'jquery.jpg', 'Curso de JQuery'),
-(7, 'Swift', 'swift.png', 'Curso de Swift'),
+(7, 'React JS', '4815348b30901aa6cc2cda6ce0ac37ff.jpg', 'Curso de React JS'),
 (8, 'Android', 'android.jpg', 'Curso para Móbiles');
 
 -- --------------------------------------------------------
@@ -221,7 +219,13 @@ CREATE TABLE `historico` (
 --
 
 INSERT INTO `historico` (`id`, `data_viewed`, `id_aluno`, `id_aula`) VALUES
-(14, '2020-06-19 15:15:30', 11, 91);
+(14, '2020-06-19 15:15:30', 11, 91),
+(15, '2022-03-31 09:14:10', 1, 1),
+(16, '2022-03-31 09:14:17', 1, 3),
+(17, '2022-03-31 09:17:07', 1, 7),
+(18, '2022-03-31 09:31:08', 1, 30),
+(19, '2022-03-31 09:31:56', 1, 29),
+(20, '2022-03-31 09:32:22', 1, 29);
 
 -- --------------------------------------------------------
 
@@ -254,7 +258,6 @@ INSERT INTO `modulos` (`id`, `id_curso`, `nome`) VALUES
 (12, 3, 'Intermediário'),
 (13, 3, 'Avançado'),
 (14, 3, 'Super Avançado'),
-(36, 12, 'Modulo teste'),
 (18, 5, 'Básico'),
 (19, 5, 'Intermediário'),
 (20, 5, 'Avançado'),
@@ -484,7 +487,7 @@ ALTER TABLE `alunos`
 -- AUTO_INCREMENT de tabela `aluno_curso`
 --
 ALTER TABLE `aluno_curso`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT de tabela `aulas`
@@ -508,7 +511,7 @@ ALTER TABLE `duvidas`
 -- AUTO_INCREMENT de tabela `historico`
 --
 ALTER TABLE `historico`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de tabela `modulos`
