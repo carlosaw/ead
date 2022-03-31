@@ -20,13 +20,8 @@ class homeController extends controller {
 		$this->loadTemplate('home', $dados);
 	}
 
-	public function excluir($id) {// Excluir um curso
-		$cursos = new Cursos();
-		$cursos->excluir($id);
-		header("Location: ".BASE);
-	}
-
-	public function adicionar() {// Adicionar um curso	
+	// Adicionar um curso
+	public function adicionar() {	
 		
 		$dados = array();
 		$cursos = new Cursos();
@@ -52,8 +47,9 @@ class homeController extends controller {
 		}
 		$this->loadTemplate("curso_add", $dados);
 	}
-
-	public function editar($id) {//Editar Curso.
+	
+	//Editar Curso.
+	public function editar($id) {
 		$dados = array(
 			'curso' => array(),
 			'modulos' => array()
@@ -78,15 +74,16 @@ class homeController extends controller {
 				}
 			}
 		}
-		$modulos = new Modulos();		
+						
 		//Usuário adicionou um Módulo Novo.
+		$modulos = new Modulos();
 		if(isset($_POST['modulo']) && !empty($_POST['modulo'])) {
 			$modulo = addslashes($_POST['modulo']);
 			$modulos->addModulo($modulo, $id);
 		}
-
-		$aulas = new Aulas();
+		
 		//Usuário adicionou uma Aula Nova.
+		$aulas = new Aulas();
 		if(isset($_POST['aula']) && !empty($_POST['aula'])) {
 			$aula = addslashes($_POST['aula']);
 			$moduloaula = addslashes($_POST['moduloaula']);
@@ -102,20 +99,14 @@ class homeController extends controller {
 		$this->loadTemplate('curso_edit', $dados);		
 	}
 
-	public function del_modulo($id) {// Excluir Módulo
-		if(!empty($id)) {
-
-			$id = addslashes($id);
-			$modulos = new Modulos();
-			 			
-			$id_curso = $modulos->deleteModulo($id);
-
-			header("Location: ".BASE."home/editar/".$id_curso);
-			exit;
-		}	
-		header("Location: ".BASE);	
+	// Deletar um curso com módulos e aulas
+	public function excluir($id) {
+		$cursos = new Cursos();
+		$cursos->excluir($id);
+		header("Location: ".BASE);
 	}
-	
+
+	// Editar um Módulo
 	public function edit_modulo($id) {
 		$array = array();
 		$id_curso = $modulos = new Modulos();
@@ -132,6 +123,21 @@ class homeController extends controller {
 		$this->loadTemplate('curso_edit_modulo', $array);
 	}
 
+	// Deletar um Módulo
+	public function del_modulo($id) {// Excluir Módulo
+		if(!empty($id)) {
+
+			$id = addslashes($id);
+			$modulos = new Modulos();
+			 			
+			$id_curso = $modulos->deleteModulo($id);
+
+			header("Location: ".BASE."home/editar/".$id_curso);
+			exit;
+		}	
+		header("Location: ".BASE);	
+	}
+	
 	public function del_aula($id) {
 		if(!empty($id)) {
 			$id = addslashes($id);			
@@ -145,32 +151,12 @@ class homeController extends controller {
 		header("Location: ".BASE);
 	}
 		
-
-/*		
-		$aulas = new Aulas();
-		//Usuário adicionou uma Aula Nova.
-		if(isset($_POST['aula']) && !empty($_POST['aula'])) {
-			$aula = addslashes($_POST['aula']);
-			$moduloaula = addslashes($_POST['moduloaula']);
-			$tipo = addslashes($_POST['tipo']);
-//print_r($_POST);exit;
-			$aulas->addAula($id, $moduloaula, $aula, $tipo);
-*/		
-	
-		
-
-
-
-	
-
-	
-
 	public function edit_aula($id) {
 		$dados = array();
 		$view = 'curso_edit_aula_video';
 
 		$aulas = new Aulas();
-
+		// Update de aula video
 		if(isset($_POST['nome']) && !empty($_POST['nome'])) {
 			$nome = addslashes($_POST['nome']);
 			$descricao = addslashes($_POST['descricao']);
@@ -180,11 +166,11 @@ class homeController extends controller {
 
 			header("Location: ".BASE."home/editar/".$id_curso);
 		}
+
+		// Update de Questionários
 		$dados = array();
 		$view = 'curso_edit_aula_poll';
-
 		$aulas = new Aulas();
-
 		if(isset($_POST['pergunta']) && !empty($_POST['pergunta'])) {
 			$pergunta = addslashes($_POST['pergunta']);
 			$opcao1 = addslashes($_POST['opcao1']);

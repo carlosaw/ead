@@ -20,10 +20,11 @@
 			<select name="cursos[]" class="slct" multiple>
 				<?php foreach($cursos as $curso): ?>
 					<option value="<?php echo $curso['id']; ?>" <?php 
-					if(in_array($curso['id'], $inscrito)) {
-						echo 'selected="selected"';
-					}
-					?>><?php echo $curso['nome']; ?></option>
+						if(in_array($curso['id'], $inscrito)) {
+							echo 'selected="selected"';
+						}
+						?>><?php echo $curso['nome']; ?>
+					</option>
 				<?php endforeach; ?>
 			</select><br/><br/>
 

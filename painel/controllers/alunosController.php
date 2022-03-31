@@ -21,15 +21,15 @@ class alunosController extends controller {
 		$this->loadTemplate('alunos', $dados);
 	}
 
-	public function excluir($id) {//Exclui aluno
-
+	//Excluir aluno
+	public function excluir($id) {
 		$alunos = new Alunos();
 		$alunos->excluirAluno($id);
-
 		header("Location: ".BASE.'alunos');
 	}
-
-	public function adicionar() {//Adiciona aluno
+	
+	//Adicionar aluno
+	public function adicionar() {
 		$dados = array();
 
 		if(isset($_POST['nome']) && !empty($_POST['nome'])) {
@@ -43,10 +43,10 @@ class alunosController extends controller {
 		
 			header("Location: ".BASE.'alunos');
 		}
-		$this->loadTemplate("alunos_add");
+		$this->loadTemplate("alunos_add", $dados);
 	}
-
-	public function editar($id) {//Editar Aluno.
+	//Editar Aluno.
+	public function editar($id) {
 		$alunos = array(
 			'aluno' => array(),
 			'modulos' => array()

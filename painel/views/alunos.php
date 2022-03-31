@@ -1,7 +1,7 @@
-<h1 style="text-align:center">Alunos</h1>
+<h1>Alunos</h1>
 
 <button class="btnAdd"><a href="<?php echo BASE; ?>alunos/adicionar">Adicionar Aluno</a></button><br/><br/>
-<table border="1" width="100%">
+<table border="0" width="100%">
 	<tr>
 		<th>Nome</th>
 		<th width="80">Qt. de Cursos</th>

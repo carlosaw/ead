@@ -96,7 +96,7 @@ class Cursos extends model {
 			}
 		}
 	}
-/*
+
 	public function getCursosInscritos($id_aluno) {
 		$array = array();
 		
@@ -109,11 +109,9 @@ class Cursos extends model {
 			foreach($rows as $row) {
 				$array[] = $row['id_curso'];
 			}
-
 		}
-
 		return $array;
 
 	}
-*/
+
 }

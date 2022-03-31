@@ -4,8 +4,7 @@ class Alunos extends model {
 	public function getAlunos() {
 		$array = array();
 		//Pega qtde de cursos de um aluno especifico.
-		$sql = "
-		SELECT 
+		$sql = "SELECT 
 			*,
 			(select count(*) from aluno_curso where aluno_curso.id_aluno 
 				= alunos.id) as qtcursos 

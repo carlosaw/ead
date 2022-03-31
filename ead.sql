@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29-Mar-2022 às 23:03
+-- Tempo de geração: 31-Mar-2022 às 03:51
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 7.4.26
 
@@ -60,15 +60,18 @@ CREATE TABLE `aluno_curso` (
 --
 
 INSERT INTO `aluno_curso` (`id`, `id_curso`, `id_aluno`) VALUES
-(65, 8, 1),
-(64, 6, 1),
-(63, 5, 1),
+(136, 7, 1),
+(49, 7, 3),
 (48, 5, 3),
 (47, 1, 3),
-(62, 3, 1),
-(61, 2, 1),
-(60, 1, 1),
-(80, 1, 11);
+(135, 6, 1),
+(134, 5, 1),
+(133, 12, 1),
+(80, 1, 11),
+(132, 3, 1),
+(131, 2, 1),
+(137, 8, 1),
+(130, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -99,6 +102,15 @@ INSERT INTO `aulas` (`id`, `id_modulo`, `id_curso`, `ordem`, `tipo`) VALUES
 (8, 4, 1, 1, 'video'),
 (30, 4, 1, 3, 'poll'),
 (28, 4, 1, 2, 'video'),
+(31, 5, 7, 1, 'video'),
+(32, 5, 7, 2, 'video'),
+(33, 5, 7, 3, 'video'),
+(34, 5, 7, 4, 'poll'),
+(35, 6, 7, 1, 'video'),
+(36, 6, 7, 2, 'video'),
+(37, 6, 7, 3, 'poll'),
+(38, 7, 7, 1, 'video'),
+(39, 7, 7, 2, 'poll'),
 (40, 8, 2, 1, 'video'),
 (41, 8, 2, 2, 'video'),
 (42, 8, 2, 3, 'poll'),
@@ -114,14 +126,8 @@ INSERT INTO `aulas` (`id`, `id_modulo`, `id_curso`, `ordem`, `tipo`) VALUES
 (52, 13, 3, 2, 'poll'),
 (53, 14, 3, 1, 'video'),
 (54, 14, 3, 2, 'poll'),
-(55, 15, 4, 1, 'video'),
-(56, 15, 4, 2, 'video'),
-(57, 15, 4, 3, 'poll'),
-(58, 16, 4, 1, 'video'),
-(59, 16, 4, 2, 'video'),
-(60, 16, 4, 3, 'poll'),
-(61, 17, 4, 1, 'video'),
-(62, 17, 4, 2, 'poll'),
+(102, 36, 12, 1, 'video'),
+(101, 4, 1, 4, 'video'),
 (63, 18, 5, 1, 'video'),
 (64, 18, 5, 2, 'video'),
 (65, 18, 5, 3, 'video'),
@@ -166,12 +172,13 @@ CREATE TABLE `cursos` (
 --
 
 INSERT INTO `cursos` (`id`, `nome`, `imagem`, `descricao`) VALUES
-(1, 'PHP', 'php.jpg', 'Curso de Php'),
-(2, 'HTML', 'html.jpg', 'Curso de HTML'),
+(1, 'PHP ', 'php.jpg', 'Curso de PHP'),
+(2, 'HTML', '62842a668608e4a7c95ccf404c6b55f8.jpg', 'Curso de HTML'),
 (3, 'JAVASCRIPT', 'javascript.jpg', 'Curso de JavaScript'),
-(4, 'CSS', 'css.jpg', 'Curso de CSS'),
+(12, 'teste', '7f21cd97aa7e15a2a63d6f54c6f5d061.jpg', 'teste'),
 (5, 'AngularJS', 'angularjs.jpg', 'Curso de Angular'),
 (6, 'JQuery', 'jquery.jpg', 'Curso de JQuery'),
+(7, 'Swift', 'swift.png', 'Curso de Swift'),
 (8, 'Android', 'android.jpg', 'Curso para Móbiles');
 
 -- --------------------------------------------------------
@@ -237,6 +244,9 @@ INSERT INTO `modulos` (`id`, `id_curso`, `nome`) VALUES
 (2, 1, 'Intermediário'),
 (3, 1, 'Avançado'),
 (4, 1, 'Super Avançado'),
+(5, 7, 'Básico'),
+(6, 7, 'Intermediário'),
+(7, 7, 'Avançado'),
 (8, 2, 'Básico'),
 (9, 2, 'Intermediário'),
 (10, 2, 'Avançado'),
@@ -244,9 +254,7 @@ INSERT INTO `modulos` (`id`, `id_curso`, `nome`) VALUES
 (12, 3, 'Intermediário'),
 (13, 3, 'Avançado'),
 (14, 3, 'Super Avançado'),
-(15, 4, 'Básico'),
-(16, 4, 'Intermediário'),
-(17, 4, 'Avançado'),
+(36, 12, 'Modulo teste'),
 (18, 5, 'Básico'),
 (19, 5, 'Intermediário'),
 (20, 5, 'Avançado'),
@@ -394,7 +402,9 @@ INSERT INTO `videos` (`id`, `id_aula`, `nome`, `descricao`, `url`) VALUES
 (47, 95, 'Aula 5', NULL, NULL),
 (48, 96, 'Aula 6', NULL, NULL),
 (49, 97, 'Aula 7', NULL, NULL),
-(50, 98, 'Aula 8', NULL, NULL);
+(50, 98, 'Aula 8', NULL, NULL),
+(52, 101, 'Aula de teste', NULL, NULL),
+(53, 102, 'Aula teste 2.1', 'Update de aula', '');
 
 --
 -- Índices para tabelas despejadas
@@ -468,25 +478,25 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT de tabela `alunos`
 --
 ALTER TABLE `alunos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `aluno_curso`
 --
 ALTER TABLE `aluno_curso`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
 
 --
 -- AUTO_INCREMENT de tabela `aulas`
 --
 ALTER TABLE `aulas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT de tabela `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `duvidas`
@@ -504,7 +514,7 @@ ALTER TABLE `historico`
 -- AUTO_INCREMENT de tabela `modulos`
 --
 ALTER TABLE `modulos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de tabela `questionarios`
@@ -522,7 +532,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
