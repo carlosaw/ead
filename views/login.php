@@ -6,7 +6,7 @@
 			
 		</style>
 	</head>
-	<body>
+	<body class="body2">
 		<form method="POST" class="form_login">
 			<h2>Bem Vindo ao EAD</h2>
 			<input type="email" name="email" placeholder="E-mail" autofocus/><br/><br/>

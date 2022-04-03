@@ -1,7 +1,7 @@
 <?php
 require 'environment.php';
 
-define("BASE", "http://localhost/ead/painel/");//url raiz do projeto/
+define("BASE_PAINEL", "http://localhost/ead/painel/");//url raiz do projeto/
 
 $config = array();
 

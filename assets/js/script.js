@@ -24,7 +24,7 @@ function marcarAssistido(obj) {
 	});
 
 }
-
+/*
 function Mudarestado(divid){
 	document.getElementById(divid).style.display = "none";
- }
+ }*/

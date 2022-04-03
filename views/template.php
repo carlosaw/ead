@@ -14,14 +14,14 @@
 				</a>
 				<div class="topousuario">
 					<?php echo $viewData['info']->getNome(); ?>
-				</div>				
+				</div>
+					
+					<div class="back">
+						<a href="<?php echo BASE; ?>cursos">					
+							<img src="<?php echo BASE; ?>assets/images/back.png" border="0" width="80"/>					
+						</a>
+					</div>
+				
 			</div>
-			
-			<div id=1 class="back" onclick="Mudarestado(1)">
-				<a href="<?php echo BASE; ?>cursos">
-					<strong>< Cursos</strong>
-				</a>
-			</div>
-		
-		<?php $this->loadViewInTemplate($viewName, $viewData); ?>
 	
+		<?php $this->loadViewInTemplate($viewName, $viewData); ?>	
