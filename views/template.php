@@ -15,12 +15,13 @@
 				<div class="topousuario">
 					<?php echo $viewData['info']->getNome(); ?>
 				</div>
-					
-					<div class="back">
-						<a href="<?php echo BASE; ?>cursos">					
-							<img src="<?php echo BASE; ?>assets/images/back.png" border="0" width="80"/>					
-						</a>
-					</div>
+
+				
+				<div id="back" style="display: none;">
+					<a href="<?php echo BASE; ?>cursos">					
+						<img src="<?php echo BASE; ?>assets/images/back.png" border="0" width="80"/>		
+					</a>
+				</div>
 				
 			</div>
 	

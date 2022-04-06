@@ -96,6 +96,7 @@ input[type=password] {
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
 	text-align:center;
+	cursor: pointer;
 }
 .cursoinfo {
 	height:80px;
@@ -165,7 +166,10 @@ h4 {
 	background-color:#EEE;
 }
 
-
+/*back {
+	display: flex;
+	float: left;
+}*/
 .back a {
 	margin-top: -40px;
 	text-decoration: none;

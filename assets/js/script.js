@@ -24,7 +24,12 @@ function marcarAssistido(obj) {
 	});
 
 }
-/*
-function Mudarestado(divid){
-	document.getElementById(divid).style.display = "none";
- }*/
+
+function toggle_visibility(back) {
+	var e = document.getElementById(back);
+	if(e.style.display == 'none') {
+		e.style.display = 'block';
+	}	else {
+			e.style.display = 'none';
+	}
+}
