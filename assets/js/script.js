@@ -2,7 +2,7 @@ setInterval(updateArea, 100);
 
 function updateArea(){//Calcula a altura da tela
 	var alturaTela = $(document.body).height();
-	var posy = $('.curso_left').offset().top;
+	var posy = $('.curso_left').offset();
 	var altura = alturaTela - posy;
 	$('.curso_left, .curso_right').css('height', altura+'px');
 
@@ -23,13 +23,4 @@ function marcarAssistido(obj) {
 		type:'GET'//Passa o id da aula para marcar_assistido no ajaxController
 	});
 
-}
-
-function toggle_visibility(back) {
-	var e = document.getElementById(back);
-	if(e.style.display == 'none') {
-		e.style.display = 'block';
-	}	else {
-			e.style.display = 'none';
-	}
 }

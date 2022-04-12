@@ -45,7 +45,7 @@ input[type=password] {
 }
 .form_login input::placeholder {
 	color: rgb(189, 187, 187);
-	font-size: 16px;
+	font-size: 14px;
 }
 .topo {
 	height:40px;
@@ -121,14 +121,14 @@ input[type=password] {
 }
 .curso_left {
 	width:20%;
-	min-height:300px;
+	height:100vh;
 	float:left;
 	background-color:#2F3136;
 	overflow-y:scroll;
 }
 .curso_right {
 	width:80%;
-	min-height:300px;
+	height:100vh;
 	float:left;
 	background-size: cover;
 	overflow-y:scroll;
@@ -165,19 +165,25 @@ input[type=password] {
 h4 {
 	background-color:#EEE;
 }
+.hide {
+	width: 70px;
+  height: 40px;
+	background-color: #0b85d6;
+	margin-top: -40px;
+	margin-left: 50px;
+	position: absolute;
+}
 
-/*back {
+.back {
 	display: flex;
 	float: left;
-}*/
+}
 .back a {
-	margin-top: -40px;
 	text-decoration: none;
 }
 .back a:hover {
 	background-color: #3997d6;
 }
 .back img {
-	margin-top: 40px;
 	height: 40px;
 }

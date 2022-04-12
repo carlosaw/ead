@@ -18,7 +18,8 @@ class Cursos extends model {
 		LEFT JOIN cursos
 			ON aluno_curso.id_curso = cursos.id 
 		WHERE 
-			aluno_curso.id_aluno = '$id'";
+			aluno_curso.id_aluno = '$id'
+		ORDER BY cursos.id ASC";
 		
 		$sql = $this->db->query($sql);
 

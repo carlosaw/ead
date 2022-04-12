@@ -30,6 +30,3 @@
 		<img src="<?php echo BASE; ?>assets/images/cursos/<?php echo $curso->getImagem(); ?>" border="0" height="auto" width="100%" />
 		</div>
 </div>
-</div><!--container-->
-</body>
-</html>
