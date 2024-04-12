@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12-Abr-2022 às 16:56
--- Versão do servidor: 10.4.22-MariaDB
--- versão do PHP: 7.4.26
+-- Tempo de geração: 12-Abr-2024 às 21:02
+-- Versão do servidor: 10.4.27-MariaDB
+-- versão do PHP: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `alunos` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `senha` varchar(32) COLLATE utf8_unicode_ci NOT NULL
+  `id` int(11) UNSIGNED NOT NULL,
+  `nome` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `senha` varchar(32) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -50,7 +50,7 @@ INSERT INTO `alunos` (`id`, `nome`, `email`, `senha`) VALUES
 --
 
 CREATE TABLE `aluno_curso` (
-  `id` int(11) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `id_curso` int(11) NOT NULL,
   `id_aluno` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -80,11 +80,11 @@ INSERT INTO `aluno_curso` (`id`, `id_curso`, `id_aluno`) VALUES
 --
 
 CREATE TABLE `aulas` (
-  `id` int(11) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `id_modulo` int(11) NOT NULL,
   `id_curso` int(11) NOT NULL,
   `ordem` int(11) NOT NULL,
-  `tipo` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+  `tipo` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -160,10 +160,10 @@ INSERT INTO `aulas` (`id`, `id_modulo`, `id_curso`, `ordem`, `tipo`) VALUES
 --
 
 CREATE TABLE `cursos` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `imagem` varchar(37) COLLATE utf8_unicode_ci NOT NULL,
-  `descricao` text COLLATE utf8_unicode_ci DEFAULT NULL
+  `id` int(11) UNSIGNED NOT NULL,
+  `nome` varchar(50) NOT NULL,
+  `imagem` varchar(37) NOT NULL,
+  `descricao` text DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -191,7 +191,7 @@ CREATE TABLE `duvidas` (
   `respondida` tinyint(1) NOT NULL,
   `duvida` text DEFAULT NULL,
   `id_aluno` int(11) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Extraindo dados da tabela `duvidas`
@@ -208,7 +208,7 @@ INSERT INTO `duvidas` (`id`, `data_duvida`, `respondida`, `duvida`, `id_aluno`) 
 --
 
 CREATE TABLE `historico` (
-  `id` int(11) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `data_viewed` datetime NOT NULL,
   `id_aluno` int(11) NOT NULL,
   `id_aula` int(11) NOT NULL
@@ -234,9 +234,9 @@ INSERT INTO `historico` (`id`, `data_viewed`, `id_aluno`, `id_aula`) VALUES
 --
 
 CREATE TABLE `modulos` (
-  `id` int(11) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `id_curso` int(11) NOT NULL,
-  `nome` varchar(50) CHARACTER SET utf8 NOT NULL
+  `nome` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -276,15 +276,15 @@ INSERT INTO `modulos` (`id`, `id_curso`, `nome`) VALUES
 --
 
 CREATE TABLE `questionarios` (
-  `id` int(11) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `id_aula` int(11) NOT NULL,
-  `pergunta` varchar(100) DEFAULT NULL,
+  `pergunta` varchar(100) NOT NULL,
   `opcao1` varchar(100) DEFAULT NULL,
   `opcao2` varchar(100) DEFAULT NULL,
   `opcao3` varchar(100) DEFAULT NULL,
   `opcao4` varchar(100) DEFAULT NULL,
-  `resposta` tinyint(1) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `resposta` tinyint(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Extraindo dados da tabela `questionarios`
@@ -293,29 +293,29 @@ CREATE TABLE `questionarios` (
 INSERT INTO `questionarios` (`id`, `id_aula`, `pergunta`, `opcao1`, `opcao2`, `opcao3`, `opcao4`, `resposta`) VALUES
 (4, 30, 'Qual o melhor curso?', 'PHP-ZP', 'CSS', 'HTML', 'RUBY', 1),
 (3, 29, 'Qual a cor do céu?', 'Verde', 'Amarelo', 'Azul', 'Vermelho', 3),
-(5, 34, NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 37, NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 39, NULL, NULL, NULL, NULL, NULL, NULL),
-(8, 42, NULL, NULL, NULL, NULL, NULL, NULL),
-(9, 44, NULL, NULL, NULL, NULL, NULL, NULL),
-(10, 46, NULL, NULL, NULL, NULL, NULL, NULL),
-(11, 48, NULL, NULL, NULL, NULL, NULL, NULL),
-(12, 50, NULL, NULL, NULL, NULL, NULL, NULL),
-(13, 52, NULL, NULL, NULL, NULL, NULL, NULL),
-(14, 54, NULL, NULL, NULL, NULL, NULL, NULL),
-(15, 57, NULL, NULL, NULL, NULL, NULL, NULL),
-(16, 60, NULL, NULL, NULL, NULL, NULL, NULL),
-(17, 62, NULL, NULL, NULL, NULL, NULL, NULL),
-(18, 66, NULL, NULL, NULL, NULL, NULL, NULL),
-(19, 68, NULL, NULL, NULL, NULL, NULL, NULL),
-(20, 70, NULL, NULL, NULL, NULL, NULL, NULL),
-(21, 72, NULL, NULL, NULL, NULL, NULL, NULL),
-(22, 75, NULL, NULL, NULL, NULL, NULL, NULL),
-(23, 78, NULL, NULL, NULL, NULL, NULL, NULL),
-(24, 81, NULL, NULL, NULL, NULL, NULL, NULL),
-(25, 83, NULL, NULL, NULL, NULL, NULL, NULL),
-(26, 85, NULL, NULL, NULL, NULL, NULL, NULL),
-(27, 87, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 34, '', NULL, NULL, NULL, NULL, 0),
+(6, 37, '', NULL, NULL, NULL, NULL, 0),
+(7, 39, '', NULL, NULL, NULL, NULL, 0),
+(8, 42, '', NULL, NULL, NULL, NULL, 0),
+(9, 44, '', NULL, NULL, NULL, NULL, 0),
+(10, 46, '', NULL, NULL, NULL, NULL, 0),
+(11, 48, '', NULL, NULL, NULL, NULL, 0),
+(12, 50, '', NULL, NULL, NULL, NULL, 0),
+(13, 52, '', NULL, NULL, NULL, NULL, 0),
+(14, 54, '', NULL, NULL, NULL, NULL, 0),
+(15, 57, '', NULL, NULL, NULL, NULL, 0),
+(16, 60, '', NULL, NULL, NULL, NULL, 0),
+(17, 62, '', NULL, NULL, NULL, NULL, 0),
+(18, 66, '', NULL, NULL, NULL, NULL, 0),
+(19, 68, '', NULL, NULL, NULL, NULL, 0),
+(20, 70, '', NULL, NULL, NULL, NULL, 0),
+(21, 72, '', NULL, NULL, NULL, NULL, 0),
+(22, 75, '', NULL, NULL, NULL, NULL, 0),
+(23, 78, '', NULL, NULL, NULL, NULL, 0),
+(24, 81, '', NULL, NULL, NULL, NULL, 0),
+(25, 83, '', NULL, NULL, NULL, NULL, 0),
+(26, 85, '', NULL, NULL, NULL, NULL, 0),
+(27, 87, '', NULL, NULL, NULL, NULL, 0),
 (28, 99, 'Onde comprar barato?', 'Flórida', 'Miami', 'São Paulo', 'Shopping dos camelôs?', 4);
 
 -- --------------------------------------------------------
@@ -328,7 +328,7 @@ CREATE TABLE `usuarios` (
   `id` int(11) UNSIGNED NOT NULL,
   `email` varchar(100) NOT NULL,
   `senha` varchar(32) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Extraindo dados da tabela `usuarios`
@@ -344,11 +344,11 @@ INSERT INTO `usuarios` (`id`, `email`, `senha`) VALUES
 --
 
 CREATE TABLE `videos` (
-  `id` int(11) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `id_aula` int(11) NOT NULL,
-  `nome` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `descricao` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `url` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
+  `nome` varchar(50) NOT NULL,
+  `descricao` text DEFAULT NULL,
+  `url` varchar(50) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -481,25 +481,25 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT de tabela `alunos`
 --
 ALTER TABLE `alunos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `aluno_curso`
 --
 ALTER TABLE `aluno_curso`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT de tabela `aulas`
 --
 ALTER TABLE `aulas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT de tabela `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `duvidas`
@@ -511,19 +511,19 @@ ALTER TABLE `duvidas`
 -- AUTO_INCREMENT de tabela `historico`
 --
 ALTER TABLE `historico`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de tabela `modulos`
 --
 ALTER TABLE `modulos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de tabela `questionarios`
 --
 ALTER TABLE `questionarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
@@ -535,10 +535,9 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-eadead
