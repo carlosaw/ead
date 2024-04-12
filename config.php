@@ -12,11 +12,11 @@ if(ENVIRONMENT == 'development') {
 	$config['dbuser'] = 'root';
 	$config['dbpass'] = '';
 } else {
-	define("BASE_URL", "http://awregulagens.com.br/ead/");
-	$config['dbname'] = 'awregula_ead';
-	$config['host'] = '162.241.2.197';
-	$config['dbuser'] = 'awregula';
-	$config['dbpass'] = 'H121tRa6lx';
+	define("BASE_URL", "http://ead.awregulagens.com.br/");
+	$config['dbname'] = 'ead-mysql';
+	$config['host'] = '108.181.92.71';
+	$config['dbuser'] = 'carlosaw';
+	$config['dbpass'] = 'N1e2c3a4mysql';
 }
 
 global $db;
